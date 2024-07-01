@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #007bff;
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .messages {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+        .messages li {
+            color: #dc3545; /* Red color for error messages */
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3; /* Darker shade of blue on hover */
+        }
+        .form-footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .form-footer a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="container">
+        <h2>Sign Up</h2>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_first_name">First Name</label>
+                {{ form.first_name }}
+            </div>
+            <div class="form-group">
+                <label for="id_last_name">Last Name</label>
+                {{ form.last_name }}
+            </div>
+            <div class="form-group">
+                <label for="id_username">Username</label>
+                {{ form.username }}
+            </div>
+            <div class="form-group">
+                <label for="id_email">Email</label>
+                {{ profile_form.email_id }}
+            </div>
+            <div class="form-group">
+                <label for="id_password">Password</label>
+                {{ form.password }}
+            </div>
+            <div class="form-group">
+                <label for="id_confirm_password">Confirm Password</label>
+                {{ form.confirm_password }}
+            </div>
+            <div class="form-group">
+                <label for="id_profile_picture">Profile Picture</label>
+                {{ profile_form.profile_picture }}
+            </div>
+            <div class="form-group">
+                <label for="id_address_line1">Address</label>
+                {{ profile_form.address_line1 }}
+            </div>
+            <div class="form-group">
+                <label for="id_city">City</label>
+                {{ profile_form.city }}
+            </div>
+            <div class="form-group">
+                <label for="id_state">State</label>
+                {{ profile_form.state }}
+            </div>
+            <div class="form-group">
+                <label for="id_pincode">Pincode</label>
+                {{ profile_form.pincode }}
+            </div>
+
+            <div class="form-group">
+                <label for="id_pincode">Typeof User</label>
+                {{ profile_form.user_type }}
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="form-footer">
+            <p>Already have an account? <a href="/">Login</a></p>
+        </div>
+    </div>
+</body>
+</html>
+
