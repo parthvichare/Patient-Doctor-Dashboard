@@ -98,3 +98,4 @@ This project is a web application designed to provide separate dashboards for pa
    ```sh
    git clone https://github.com/your-username/patient-doctor-dashboard.git
    cd patient-doctor-dashboard
+
